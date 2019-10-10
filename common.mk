@@ -122,6 +122,10 @@ PRODUCT_COPY_FILES += \
     device/sample/etc/old-apns-conf.xml:system/etc/old-apns-conf.xml \
     device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
+# Bluetooth
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/rootdir/vendor/etc/sysconfig/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+
 $(call inherit-product, device/sony/common/common-init.mk)
 $(call inherit-product, device/sony/common/common-odm.mk)
 $(call inherit-product, device/sony/common/common-packages.mk)

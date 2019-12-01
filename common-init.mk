@@ -42,6 +42,7 @@ PRODUCT_PACKAGES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
+    init.insmod.sh \
     init.qcom.adspstart.sh \
     init.qcom.cdspstart.sh \
     init.qcom.ipastart.sh \

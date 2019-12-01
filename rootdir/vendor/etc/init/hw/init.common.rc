@@ -29,6 +29,9 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+    # Loading kernel modules in background
+    start insmod_sh
+
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 

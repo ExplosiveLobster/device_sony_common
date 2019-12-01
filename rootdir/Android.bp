@@ -40,6 +40,15 @@ cc_prebuilt_binary {
     },
 }
 
+cc_prebuilt_binary {
+    name: "init.insmod.sh",
+    srcs: ["vendor/bin/init.insmod.sh"],
+    init_rc: ["vendor/etc/init/insmod.rc"],
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}
 
 // Init files
 
@@ -144,6 +153,13 @@ prebuilt_etc {
 prebuilt_etc {
     name: "per-service.rc",
     src: "vendor/etc/init/per-service.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "rild2.rc",
+    src: "vendor/etc/init/rild2.rc",
     sub_dir: "init",
     vendor: true,
 }

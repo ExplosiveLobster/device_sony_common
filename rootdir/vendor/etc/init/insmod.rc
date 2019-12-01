@@ -1,0 +1,6 @@
+service insmod_sh /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.cfg
+    class main
+    user root
+    group root system
+    disabled
+    oneshot

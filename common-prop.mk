@@ -86,7 +86,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Delay reduction
 PRODUCT_PROPERTY_OVERRIDES += \
-    sdm.debug.rotator_downscale=1
+    vendor.display.disable_rotator_downscale=1
 
 # DRM service
 PRODUCT_PROPERTY_OVERRIDES += \

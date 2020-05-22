@@ -48,7 +48,9 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 # Force building a recovery image: Needed for OTA packaging to work since Q
 PRODUCT_BUILD_RECOVERY_IMAGE := true
 
-BUILD_KERNEL := true
+# Force building a boot image. This needs to be set explicitly since Android R
+PRODUCT_BUILD_BOOT_IMAGE := true
+
 -include $(KERNEL_PATH)/common-headers/KernelHeaders.mk
 
 # Codecs Configuration

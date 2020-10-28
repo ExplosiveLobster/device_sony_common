@@ -15,7 +15,6 @@ else
 display-hal := hardware/qcom/caf-4.9/display
 endif
 gps-hal := hardware/qcom/caf-4.9/gps
-ipa-hal := hardware/qcom/caf-4.9/data-ipa-cfg-mgr
 
 ifneq ($(filter msm8952,$(TARGET_BOARD_PLATFORM)),)
 QCOM_MEDIA_ROOT := hardware/qcom/caf-4.9/media-staging
@@ -34,5 +33,4 @@ include device/sony/common/hardware/qcom/utils.mk
 include $(audio-hal)/Android.mk
 include $(display-hal)/Android.mk
 include $(gps-hal)/Android.mk
-include $(call first-makefiles-under,$(ipa-hal))
 include $(media-hal)/Android.mk

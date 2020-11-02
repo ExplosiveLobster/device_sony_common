@@ -77,6 +77,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.vt_avail_ovr=1  \
     persist.dbg.wfc_avail_ovr=1
 
+ifneq ($(TARGET_KERNEL_VERSION), 4.9)
 # Modem properties
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.wait_for_pbm=1 \
@@ -85,6 +86,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.unicode_op_names=true \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.oem_socket=true
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.radio.oem_socket=false
+endif
 
 # Ringer
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -265,8 +270,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RILD
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.rild.libpath=/odm/lib64/libril-qc-hal-qmi.so \
     ril.subscription.types=NV,RUIM
+
+ifneq ($(TARGET_KERNEL_VERSION), 4.9)
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.rild.libpath=/odm/lib64/libril-qc-hal-qmi.so
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.rild.libpath=/odm/lib64/libril-qc-qmi-1.so
+endif
 
 # OpenGLES version
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -147,4 +147,6 @@ $(call inherit-product, device/sony/common/common-packages.mk)
 $(call inherit-product, device/sony/common/common-perm.mk)
 $(call inherit-product, device/sony/common/common-prop.mk)
 $(call inherit-product, device/sony/common/common-treble.mk)
+ifneq ($(TARGET_KERNEL_VERSION), 4.9)
 $(call inherit-product, device/sony/common/common-binds.mk)
+endif

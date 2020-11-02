@@ -35,11 +35,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-service
 
+ifneq ($(TARGET_KERNEL_VERSION), 4.9)
 # RIL
 # Interface library needed by odm blobs:
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.4 \
     android.hardware.radio.config@1.2
+endif
 
 # Audio
 PRODUCT_PACKAGES += \

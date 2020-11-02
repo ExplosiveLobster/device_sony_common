@@ -173,6 +173,7 @@ DEVICE_MATRIX_FILE   += $(COMMON_PATH)/vintf/compatibility_matrix.xml
 # Custom NXP NFC vendor interface
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.nxp.nxpnfc.xml
 
+ifneq ($(TARGET_KERNEL_VERSION), 4.9)
 # SIM secure element, SIM1/SIM2
 ifeq ($(PRODUCT_DEVICE_DS),true)
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hardware.secure_element_ds.xml
@@ -200,6 +201,15 @@ DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.dataservices.xml
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.somc.modem.xml
 
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.cneservices.xml
+else
+ifeq ($(PRODUCT_DEVICE_DS),true)
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hw.radio_ds_legacy.xml
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.radio_ds_legacy.xml
+else
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hw.radio_ss_legacy.xml
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.radio_ss_legacy.xml
+endif
+endif
 
 ifeq ($(TARGET_KEYMASTER_V4),true)
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hw.keymaster_v4.xml

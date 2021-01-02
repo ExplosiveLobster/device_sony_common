@@ -63,6 +63,9 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
+    flp.conf \
+    gnss_antenna_info.conf \
+    gps.conf \
     libloc_core \
     libgps.utils \
     liblocation_api \

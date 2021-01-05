@@ -209,7 +209,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.usb_offload_sidetone_volume.enable=false \
     vendor.audio.feature.usb_offload.enable=true \
     vendor.audio.feature.vbat.enable=true \
-    vendor.audio.feature.wsa.enable=false
+    vendor.audio.feature.wsa.enable=false \
+    vendor.audio.feature.compr_voip.enable=true
 
 # AudioPolicy Manager
 PRODUCT_PROPERTY_OVERRIDES += \
